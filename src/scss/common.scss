@@ -1,0 +1,112 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+//========================================================================================================================================================
+
+// .fancybox__container {
+//     max-width: none;
+// }
+
+//========================================================================================================================================================
+
+.top-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: toRem(10);
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
+  &__title {
+  }
+
+  &__link {
+  }
+}
+.title {
+  font-family: "Inter Tight";
+  font-weight: 700;
+  @include adaptiveValue("font-size", 28, 24);
+  line-height: 130%;
+  color: #0e1e24;
+  text-transform: uppercase;
+
+  span {
+    color: #ffd565;
+  }
+
+  &_yellow {
+    color: #ffd565;
+  }
+
+  &_white {
+    color: #fff;
+  }
+}
+
+.text {
+  font-family: "Inter Tight";
+  font-weight: 500;
+  @include adaptiveValue("font-size", 18, 16);
+  line-height: 130%;
+  color: #0e1e24;
+
+  p {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 25, 15);
+    }
+  }
+
+  &_white {
+    color: #fff;
+  }
+}
+
+//========================================================================================================================================================
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: toRem(5);
+  .swiper-pagination-bullet {
+    cursor: pointer;
+    display: block;
+    width: toRem(15);
+    height: toRem(15);
+    background-color: #c6c8c7;
+    border-radius: 50%;
+
+    transition: background-color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #ffd565;
+      }
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #ffd565;
+  }
+}
+
+//========================================================================================================================================================
+
+.social {
+  display: flex;
+  @include adaptiveValue("gap", 15, 10);
+  &__link {
+    flex-shrink: 0;
+    @include adaptiveValue("flex-basis", 50, 45);
+    img {
+      max-width: 100%;
+    }
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

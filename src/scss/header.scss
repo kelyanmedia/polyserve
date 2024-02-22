@@ -1,0 +1,410 @@
+//====================================================================================================
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  transition: background-color 0.8s ease 0s;
+  &._header-scroll {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: $mobile) {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      opacity: 0;
+      z-index: 5;
+
+      .menu-open & {
+        transition: all 0.3s ease 0.3s;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__container {
+    @include adaptiveValue("min-height", 130, 65);
+    padding-top: toRem(10);
+    padding-bottom: toRem(10);
+
+    display: grid;
+    align-items: center;
+    transition: min-height 0.5s ease 0s;
+
+    ._header-scroll & {
+      @include adaptiveValue("min-height", 80, 55);
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(20);
+    background-color: #ffd565;
+    border-radius: toRem(10);
+    padding-top: toRem(4);
+    padding-bottom: toRem(4);
+    @include adaptiveValue("padding-left", 20, 10);
+    @include adaptiveValue("padding-right", 20, 10);
+
+    @media (max-width: $mobile) {
+      justify-content: space-between;
+    }
+
+    position: relative;
+  }
+
+  &__decore {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &::before {
+      overflow: hidden;
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 175%;
+      top: 0;
+      left: 0;
+      background: url("@img/decore-header.png") top right / cover no-repeat;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.8;
+      @media (max-width: $tablet) {
+        opacity: 0.7;
+      }
+      @media (max-width: $mobileSmall) {
+        width: 55%;
+      }
+    }
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 5;
+    @include adaptiveValue("max-width", 70, 55);
+    flex-shrink: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__menu {
+    @media (min-width: $mobile) {
+      position: relative;
+      z-index: 5;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    @include adaptiveValue("gap", 20, 10, 0, 1230, 767);
+    flex-shrink: 0;
+
+    @media (min-width: $mobile) and (max-width: $tablet) {
+      flex: 0 0 toRem(100);
+    }
+    @media (max-width: $mobile) {
+      flex: 1 0 auto;
+      justify-content: flex-end;
+    }
+  }
+
+  &__phone {
+    border: 1px solid #ffd565;
+    @media (min-width: $tablet) {
+      min-width: toRem(182);
+    }
+    @media (max-width: $tablet) {
+      border-radius: 50%;
+      flex: 0 0 toRem(45);
+      height: toRem(45);
+      padding: 0;
+    }
+
+    &::before {
+      color: #ffd565;
+      font-size: toRem(18);
+      @media (min-width: $tablet) {
+        display: none;
+      }
+    }
+    span {
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    border: 1px solid #ffd565;
+    border-radius: 50%;
+    background-color: #ffd565;
+    display: block;
+    flex: 0 0 toRem(50);
+    @media (max-width: $tablet) {
+      flex: 0 0 toRem(45);
+    }
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__icon {
+  }
+}
+
+.menu {
+  &__body {
+    @media (max-width: $mobile) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+
+      padding: calc(var(--header-height) + toRem(25)) toRem(15) toRem(30);
+      background-color: #fff;
+      overflow: auto;
+
+      transition: left 0.3s ease 0s;
+      .menu-open & {
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include adaptiveValue("column-gap", 40, 15, 0, 1230, 991);
+    row-gap: toRem(5);
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: toRem(15);
+    }
+  }
+
+  &__item {
+    font-weight: 500;
+    @media (max-width: $mobile) {
+      font-size: toRem(25);
+      width: 100%;
+    }
+
+    ._header-scroll & {
+      // color: #fff;
+    }
+    .menu-open ._header-scroll & {
+      color: #0e1e24;
+    }
+
+    position: relative;
+    &:hover {
+      @media (min-width: $mobile) {
+        .menu__sublist {
+          top: calc(100% + toRem(15));
+          pointer-events: all;
+          visibility: visible;
+          opacity: 1;
+        }
+        .menu__link::after {
+          transform: rotate(180deg);
+        }
+
+        &::before {
+          content: "";
+
+          position: absolute;
+          width: 100%;
+          height: toRem(15);
+          bottom: toRem(-15);
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: toRem(5) 0;
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    &[data-spoller] {
+      display: flex;
+      align-items: center;
+      gap: toRem(10);
+      @media (max-width: $mobile) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &::after {
+        content: "\e900";
+        @extend %ic;
+        font-size: toRem(8);
+        transition: transform 0.3s ease 0s;
+
+        @media (max-width: $mobile) {
+          font-size: toRem(15);
+        }
+      }
+      &._spoller-active {
+        @media (max-width: $mobile) {
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__sublist {
+    @media (min-width: $mobile) {
+      position: absolute;
+      top: calc(100% + toRem(25));
+      left: 0;
+      min-width: toRem(300);
+
+      background-color: #fff;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      padding: toRem(20) toRem(15);
+      transition: all 0.3s ease 0s;
+      // border-radius: toRem(10);
+      max-height: toRem(300);
+      overflow-y: auto;
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    @media (max-width: $mobile) {
+      padding: toRem(10) toRem(15);
+    }
+  }
+
+  &__subitem {
+    &:not(:last-child) {
+      margin-bottom: toRem(5);
+    }
+  }
+
+  &__sublink {
+    display: block;
+    padding: toRem(5) 0;
+
+    ._header-scroll & {
+      color: #000;
+    }
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    flex: 0 0 toRem(30);
+    width: toRem(30);
+    height: toRem(18);
+    z-index: 5;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: toRem(2);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - toRem(1));
+    }
+
+    ._header-scroll & {
+      span,
+      &::before,
+      &::after {
+        background-color: #fff;
+      }
+    }
+
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after,
+      span {
+        background-color: #ffd565;
+      }
+      &::before {
+        top: calc(50% - toRem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - toRem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

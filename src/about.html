@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+
+			<section class="hero">
+				<div class="hero__container">
+					<div class="hero__body hero__body_center">
+						<div class="hero__bg-ibg"><img src="@img/hero/about-bg.jpg" alt="" loading="lazy"></div>
+
+						<h1 class="hero__title">О компании</h1>
+					</div>
+				</div>
+			</section>
+
+			<section class="about">
+				<div class="about__container">
+					<h2 class="about__maintitle title">Poligraf Servis – динамично развивающиеся полиграфическое предприятие - типография, предоставляющая широкий спектр полиграфических услуг в области полиграфии: в Ташкенте
+						и по всему Узбекистану.</h2>
+					<div class="about__items">
+						<div class="about__item item-about">
+							<h4 class="item-about__title title title_yellow">Опыт работы <br> более 50 лет</h4>
+							<div class="item-about__text text text_white">
+								<p>Poligraf Servis - это бренд созданный на базе типографии  ООО “Yangiyul Poligraph Service” - ранее Янгиюльская книжная фабрика, которая была создана более 50 лет назад.</p>
+							</div>
+						</div>
+						<div class="about__item item-about">
+							<h4 class="item-about__title title title_yellow">Лидеры на рынке <br> полиграфии в Узбекистане</h4>
+							<div class="item-about__text text text_white">
+								<p>Мы являемся одной из ведущих компаний в Узбекистане по производству книг и журналов, в том числе школьных учебников.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="clients">
+				<div class="clients__container">
+					<h2 class="clients__title title">наши клиенты</h2>
+					<div class="clients__items">
+						<div class="clients__item item-clients"><img src="@img/clients/01.png" alt="" loading="lazy"></div>
+						<div class="clients__item item-clients"><img src="@img/clients/02.png" alt="" loading="lazy"></div>
+						<div class="clients__item item-clients"><img src="@img/clients/03.png" alt="" loading="lazy"></div>
+						<div class="clients__item item-clients"><img src="@img/clients/04.png" alt="" loading="lazy"></div>
+						<div class="clients__item item-clients"><img src="@img/clients/05.png" alt="" loading="lazy"></div>
+
+					</div>
+				</div>
+			</section>
+
+			@@include('html/_location.htm',{})
+
+			@@include('html/_contact.htm',{})
+
+			<section class="info-block">
+				<div class="info-block__container">
+					<div class="info-block__body">
+						<h2 class="info-block__title title">МИССИЯ НАШЕЙ КОМПАНИИ — ПРЕДОСТАВИТЬ заказчикам КАЧЕСТВЕННУЮ ПОЛИГРАФИЮ НА ВЫГОДНЫХ УСЛОВИЯХ <br>
+							ОТ ИДЕИ ДО ВОПЛОЩЕНИЯ</h2>
+						<div class="info-block__content text">
+							<p>Мы ценим каждого нашего клиента и стремимся к тому, чтобы каждый заказ был завершен в срок с высоким качеством изготовления. </p>
+							<p>Наша команда дизайнеров, менеджеров и печатников всегда готова помочь воплотить ваши идеи в реальность.</p>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			@@include('html/_submit.htm',{})
+
+		</main>
+		@@include('html/_footer.htm',{})
+		@@include('html/_popup.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

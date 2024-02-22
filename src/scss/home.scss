@@ -1,0 +1,763 @@
+//====================================================================================================
+
+.hero {
+  background-color: #0d0d0d;
+  border-radius: toRem(10);
+  position: relative;
+  overflow: hidden;
+
+  @include adaptiveValue("margin-bottom", 50, 30);
+
+  @media (max-width: $tablet) and (min-width: $mobile) {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+  }
+  &__container {
+  }
+
+  &__body {
+    @include adaptiveValue("padding-top", 120, 80);
+
+    @media (min-width: $mobile) {
+      @include adaptiveValue("padding-bottom", 105, 40);
+      @include adaptiveValue("min-height", 500, 400, 0, 1230, 767);
+    }
+
+    &_center {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue("padding-bottom", 120, 80);
+    }
+  }
+
+  &__bg-ibg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    max-width: toRem(870);
+    font-weight: 700;
+    @include adaptiveValue("font-size", 45, 28);
+    line-height: 130%;
+    color: #fff;
+    text-transform: uppercase;
+
+    span {
+      color: #ffd565;
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__link {
+    position: relative;
+    z-index: 2;
+    min-width: toRem(204);
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    @media (min-width: $mobile) {
+      position: absolute;
+      top: 0;
+      right: toRem(-65);
+      height: 100%;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    @media (max-width: $mobile) {
+      margin-top: toRem(20);
+      margin-right: toRem(-15);
+      margin-left: toRem(-15);
+    }
+
+    img {
+      @media (min-width: $mobile) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: contain;
+        object-position: right;
+      }
+      @media (max-width: $mobile) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+.button {
+}
+
+//====================================================================================================
+
+.products {
+  &__container {
+    @include adaptiveValue("padding-top", 100, 40);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__top {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    }
+  }
+
+  &__item {
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: toRem(20);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__navigation-link {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 18, 16);
+    line-height: 110%;
+    color: rgba(0, 0, 0, 0.6);
+
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #0d0d0d;
+      opacity: 0;
+      transition: opacity 0.3s ease 0s;
+    }
+
+    transition: color 0.3s ease 0s;
+    &.active {
+      color: #0e1e24;
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #0e1e24;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.item-product {
+  &__image-ibg {
+    display: block;
+
+    border-radius: toRem(10);
+    overflow: hidden;
+    padding-bottom: percent(300, 386);
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    img {
+      transition: transform 0.3s ease 0s;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__title {
+    padding: 0 toRem(10);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 110%;
+
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.info-block {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__body {
+    background-color: #ffd565;
+    border-radius: toRem(20);
+    overflow: hidden;
+
+    padding: toRem(30) toRem(20);
+
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $mobile) {
+      padding: toRem(30) toRem(15);
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url("@img/circle-decor.png") top right / cover no-repeat;
+      z-index: 1;
+
+      @media (max-width: $tablet) {
+        opacity: 0.5;
+      }
+      @media (max-width: $mobile) {
+        width: 80%;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    line-height: 150%;
+  }
+}
+
+//========================================================================================================================================================
+
+.why-us {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-why-us {
+  background-color: #0e1e24;
+  border-radius: toRem(10);
+
+  padding: toRem(30) toRem(20);
+  @media (max-width: $mobile) {
+    padding: toRem(25) toRem(15);
+  }
+
+  @media (min-width: $tablet) {
+    min-height: toRem(300);
+  }
+
+  position: relative;
+
+  &:first-child,
+  &:last-child {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background: url("@img/circle-decor-items.png") top right / cover no-repeat;
+      z-index: 1;
+
+      @media (max-width: $tablet) {
+        opacity: 0.8;
+      }
+      @media (max-width: $mobile) {
+        width: 80%;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    text-transform: none;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 15);
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    max-width: toRem(310);
+  }
+}
+
+//========================================================================================================================================================
+
+.service {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__body {
+    display: flex;
+    column-gap: toRem(20);
+    row-gap: toRem(30);
+
+    @media (max-width: $tablet) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__slider {
+    @media (min-width: $tablet) {
+      flex: 1 1 auto;
+      height: max-content;
+    }
+
+    @media (max-width: $tablet) {
+      width: 100%;
+      max-width: toRem(600);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  &__wrapper {
+  }
+
+  &__slide-ibg {
+    border-radius: toRem(10);
+    overflow: hidden;
+    padding-bottom: percent(500, 580);
+    height: fit-content;
+    background-color: #fff;
+  }
+
+  &__pagination {
+    margin-top: toRem(10);
+  }
+
+  &__spollers {
+    @media (min-width: $tablet) {
+      flex: 0 0 50%;
+      height: fit-content;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.submit {
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
+  &__container {
+  }
+
+  &__body {
+    background-color: #0e1e24;
+    border-radius: toRem(10);
+
+    padding: toRem(50) toRem(20);
+
+    display: flex;
+    gap: toRem(20);
+
+    @media (max-width: $tablet) {
+      justify-content: space-between;
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      padding: toRem(30) toRem(15);
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 65%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url("@img/circle-decor-green.png") top right / cover no-repeat;
+      z-index: 1;
+
+      @media (max-width: $tablet) {
+        opacity: 0.5;
+      }
+      @media (max-width: $mobile) {
+        width: 80%;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 22%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background: url("@img/decor-green.png") top right / contain no-repeat;
+      z-index: 1;
+
+      @media (max-width: $tablet) {
+        opacity: 0.5;
+      }
+      @media (max-width: $mobile) {
+        width: 35%;
+      }
+    }
+  }
+
+  &__content {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 30, 20);
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    max-width: toRem(500);
+  }
+
+  &__text {
+    line-height: 150%;
+    max-width: toRem(500);
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__form {
+    position: relative;
+    z-index: 2;
+    flex: 0 1 toRem(500);
+
+    @media (min-width: $mobile) {
+      max-width: 500px;
+    }
+    @media (max-width: $tablet) {
+      flex: 0 1 toRem(300);
+    }
+  }
+}
+
+.form-contact {
+  &__text {
+    line-height: 150%;
+    max-width: toRem(395);
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+
+  &__input {
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+  .select {
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+//========================================================================================================================================================
+
+.location {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__body {
+    display: grid;
+
+    gap: toRem(20);
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $tablet) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__map {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    // padding-bottom: percent(500, 580);
+
+    @include adaptiveValue("height", 500, 400);
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__map-map {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+  }
+
+  &__item {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 55, 35);
+    }
+  }
+}
+
+.item-location {
+  display: grid;
+  grid-template-columns: toRem(30) auto;
+  @include adaptiveValue("column-gap", 20, 10);
+  row-gap: toRem(10);
+
+  &::before {
+    @include adaptiveValue("font-size", 42, 30);
+    color: #ffd565;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  &__title {
+    @include adaptiveValue("font-size", 28, 20);
+    text-transform: none;
+  }
+
+  &__link {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 28, 20);
+    line-height: 130%;
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.contact {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-contact {
+  background-color: #0e1e24;
+  border-radius: toRem(10);
+
+  padding: toRem(30) toRem(20);
+  @media (max-width: $mobile) {
+    padding: toRem(25) toRem(15);
+  }
+
+  @media (min-width: $tablet) {
+    min-height: toRem(300);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: url("@img/circle-decor-items.png") top right / cover no-repeat;
+    z-index: 1;
+    pointer-events: none;
+
+    @media (max-width: $tablet) {
+      opacity: 0.8;
+    }
+    @media (max-width: $mobile) {
+      width: 80%;
+    }
+  }
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__place {
+    font-weight: 400;
+    font-size: toRem(18);
+    line-height: 130%;
+    color: #fff;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: toRem(20) auto;
+    column-gap: toRem(10);
+    row-gap: toRem(10);
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+
+    &::before {
+      width: toRem(20);
+      height: toRem(25);
+      font-size: toRem(15);
+      color: #ffd565;
+
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: max-content;
+    font-weight: 400;
+    font-size: toRem(18);
+    line-height: 130%;
+    color: #fff;
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+}

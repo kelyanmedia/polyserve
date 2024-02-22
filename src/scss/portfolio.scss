@@ -1,0 +1,27 @@
+.portfolio {
+  &__container {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 100, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 40, 20, 0, 1230, 767);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item-ibg {
+    padding-bottom: percent(500, 580);
+  }
+}
+.title {
+}

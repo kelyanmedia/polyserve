@@ -1,0 +1,114 @@
+.about {
+  @include adaptiveValue("padding-top", 100, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
+  &__container {
+  }
+
+  &__maintitle {
+    @include adaptiveValue("font-size", 28, 22);
+    border-radius: toRem(20);
+    background-color: #ffd565;
+    padding: toRem(30) toRem(20);
+    @media (max-width: $mobile) {
+      padding: toRem(25) toRem(15);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(390), 1fr));
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-about {
+  background-color: #0e1e24;
+  border-radius: toRem(10);
+
+  padding: toRem(30) toRem(20);
+  @media (max-width: $mobile) {
+    padding: toRem(25) toRem(15);
+  }
+
+  @media (min-width: $tablet) {
+    min-height: toRem(300);
+  }
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: url("@img/circle-decor-items.png") top right / cover no-repeat;
+    z-index: 1;
+    pointer-events: none;
+
+    @media (max-width: $tablet) {
+      opacity: 0.8;
+    }
+    @media (max-width: $mobile) {
+      width: 80%;
+    }
+  }
+
+  &__title {
+    text-transform: none;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 20);
+    }
+  }
+
+  &__text {
+  }
+}
+
+//========================================================================================================================================================
+
+.clients {
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
+  &__container {
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
+    }
+    @media (max-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: toRem(15);
+    }
+  }
+
+  &__item {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.item-clients {
+}

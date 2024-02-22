@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+    <div class="wrapper">
+        @@include('html/_header.htm',{})
+        <main class="page">
+
+            <section class="products">
+                <div class="products__container">
+
+                    <div class="products__top top-block">
+                        <h2 class="top-block__title title">оборудование </h2>
+                    </div>
+
+                    <div class="products__navigation">
+                        <a href="#" class="products__navigation-link active">Все</a>
+                        <a href="#" class="products__navigation-link">Допечатное оборудование</a>
+                        <a href="#" class="products__navigation-link">Печатное оборудование</a>
+                        <a href="#" class="products__navigation-link">Переплетное оборудование</a>
+                        <a href="#" class="products__navigation-link">Оборудование для высечки и тиснения фольгой</a>
+                        <a href="#" class="products__navigation-link">Машина для выборочной УФ лакировки продукции</a>
+                    </div>
+
+                    <div class="products__items">
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/01.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">CTP Heidelberg suprasetter 105</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/02.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">4 красочная печатная машина формата B1 (70*100 см) KBA RAPIDA 105-4</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/03.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">RMGT 920</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/04.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">ВШРА</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/05.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">Фальцевальная машина Heidelberg Stahlfolder KH78/4 KTL</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/06.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">Ниткошвейные машины БНШ6</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/07.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">Термоклеевая машина Horizon BQ460</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/08.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">ML-1040A</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/09.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">TYMK -1040</a></h3>
+                        </article>
+                        <article class="products__item item-product">
+                            <a href="#" class="item-product__image-ibg"><img src="@img/equipment/10.jpg" alt="" loading="lazy"></a>
+                            <h3 class="item-product__title"><a href="#">JB750II 3/4</a></h3>
+                        </article>
+                    </div>
+
+                </div>
+            </section>
+
+            @@include('html/_submit.htm',{})
+
+        </main>
+        @@include('html/_footer.htm',{})
+        @@include('html/_popup.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+</body>
+
+</html>

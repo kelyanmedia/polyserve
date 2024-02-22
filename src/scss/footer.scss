@@ -1,0 +1,119 @@
+//====================================================================================================
+
+.footer {
+  @include adaptiveValue("margin-top", 75, 30);
+  background-color: #0e1e24;
+  &__container {
+    @include adaptiveValue("padding-top", 50, 40);
+    @include adaptiveValue("padding-bottom", 55, 30);
+  }
+
+  &__body {
+    color: #fff;
+    line-height: 130%;
+
+    display: flex;
+    row-gap: toRem(30);
+    @include adaptiveValue("column-gap", 130, 35, 0, 1230, 991);
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+    @media (min-width: $tablet) {
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+    @media (min-width: $mobile) {
+      max-width: toRem(340);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toRem(18);
+
+    @media (max-width: $tablet) {
+      font-size: toRem(20);
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 15, 10);
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: toRem(5);
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: toRem(5) 0;
+    font-weight: 400;
+    font-size: toRem(18);
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+
+  &__social {
+    @media (min-width: $tablet) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__copy {
+    @include adaptiveValue("margin-top", 50, 25);
+    color: #fff;
+    @include adaptiveValue("font-size", 16, 13);
+    line-height: 130%; /* 23.4px */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include adaptiveValue("gap", 10, 5);
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+
+    a {
+      transition: all 0.3s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: #fff;
+          &::before {
+            width: 100%;
+            left: 0;
+            right: auto;
+          }
+        }
+      }
+
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+        left: auto;
+      }
+    }
+  }
+}
+
+//====================================================================================================

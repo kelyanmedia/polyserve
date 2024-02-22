@@ -1,0 +1,142 @@
+.blog {
+  &__container {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__item {
+  }
+
+  &__link {
+    align-self: center;
+
+    min-width: toRem(265);
+
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+}
+
+.item-blog {
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  padding: toRem(30) toRem(20) toRem(40);
+
+  font-weight: 400;
+  font-size: toRem(18);
+  line-height: 110%;
+  color: #0e1e24;
+
+  @media (max-width: $mobile) {
+    padding: toRem(25) toRem(15);
+  }
+
+  &__date {
+    opacity: 0.4;
+
+    margin-bottom: toRem(20);
+  }
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: toRem(10);
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: toRem(20);
+  }
+
+  &__link {
+    font-weight: 700;
+
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #ffd565;
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.blog-article {
+  &__container {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+    max-width: toRem(630);
+  }
+
+  img {
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  li,
+  ol,
+  p,
+  div {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 15);
+    }
+    line-height: 150%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    font-size: toRem(18);
+    line-height: 110%;
+  }
+
+  &__date {
+    opacity: 0.4;
+    margin-bottom: toRem(20);
+  }
+}

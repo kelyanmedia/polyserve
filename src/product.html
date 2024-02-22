@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+    <div class="wrapper">
+        @@include('html/_header.htm',{})
+        <main class="page">
+
+            <section class="product">
+                <div class="product__container">
+                    <div class="product__body">
+                        <div class="product__image"><img src="@img/product/01.jpg" alt="" loading="lazy"></div>
+
+                        <div class="product__content">
+                            <h1 class="product__title title">учебники</h1>
+                            <div class="product__text text">
+                                <p>Наша типография изготовит для вас учебники для школ, высших учебных заведений, лицеев и колледжей.</p>
+                                <p>При необходимости мы поможем с созданием иллюстраций и работой с текстами, подготовим к печати, напечатаем. Если нужно напечатать тираж книг, прежде всего позвоните или напишите нам — в работе над книгой очень много тонкостей.</p>
+                                <p>Стоимость изготовления книг зависит от многих переменных и считается индивидуально. Окончательную стоимость уточняйте у менеджера.</p>
+                                <p><b>Тираж:</b> от 1000 экземпляров</p>
+                            </div>
+                            <button class="product__button button">Рассчитать стоимость</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            @@include('html/_products.htm',{})
+
+            @@include('html/_submit.htm',{})
+
+        </main>
+        @@include('html/_footer.htm',{})
+        @@include('html/_popup.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+</body>
+
+</html>
