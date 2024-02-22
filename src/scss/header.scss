@@ -368,7 +368,7 @@
       position: absolute;
       width: 100%;
       height: toRem(2);
-      background-color: #000;
+      background-color: #fff;
     }
     &::before {
       top: 0;
@@ -380,13 +380,13 @@
       top: calc(50% - toRem(1));
     }
 
-    ._header-scroll & {
-      span,
-      &::before,
-      &::after {
-        background-color: #fff;
-      }
-    }
+    // ._header-scroll & {
+    //   span,
+    //   &::before,
+    //   &::after {
+    //     background-color: #fff;
+    //   }
+    // }
 
     .menu-open & {
       span {

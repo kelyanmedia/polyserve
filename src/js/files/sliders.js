@@ -110,6 +110,7 @@ function initSliders() {
       observeParents: true,
       slidesPerView: 1,
       speed: 800,
+      loop: true,
 
       lazyPreloaderClass: "preloader",
 
