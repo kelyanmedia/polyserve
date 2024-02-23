@@ -127,6 +127,30 @@ function initSliders() {
       },
     })
   }
+
+  if (document.querySelector(".product__slider")) {
+    new Swiper(".product__slider", {
+      modules: [Pagination, Autoplay],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+
+      speed: 800,
+      lazyPreloaderClass: "preloader",
+
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+
+      pagination: {
+        el: ".product__slider .pagination",
+        clickable: true,
+      },
+    })
+  }
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {
