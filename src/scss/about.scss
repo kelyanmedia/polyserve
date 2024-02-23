@@ -90,16 +90,31 @@
     }
   }
 
-  &__items {
-    display: grid;
-    gap: toRem(20);
+  &__wrapper {
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
 
-    @media (min-width: $mobile) {
-      grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
-    }
+    // @media (min-width: $mobile) {
+    //   &.swiper-wrapper {
+    //     display: grid;
+    //     gap: toRem(20);
+    //     grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
+    //   }
+    // }
+  }
+
+  &__items {
+    // @media (min-width: $mobile) {
+
+    // }
+    // @media (max-width: $mobile) {
+    //   grid-template-columns: repeat(2, 1fr);
+    //   gap: toRem(15);
+    // }
+
     @media (max-width: $mobile) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: toRem(15);
+      margin-right: toRem(-15);
+      margin-left: toRem(-15);
     }
   }
 

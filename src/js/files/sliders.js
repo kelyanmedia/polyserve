@@ -151,6 +151,70 @@ function initSliders() {
       },
     })
   }
+  if (document.querySelector(".clients__items")) {
+    new Swiper(".clients__items", {
+      modules: [Autoplay],
+      observer: true,
+      observeParents: true,
+
+      speed: 1500,
+      loop: true,
+      // loopAdditionalSlides: 5,
+      allowTouchMove: false,
+
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+
+      breakpoints: {
+        320: {
+          slidesPerView: 2.8,
+          spaceBetween: 20,
+        },
+        600: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 20,
+        },
+        991: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      },
+    })
+  }
+
+  // for (const mobileSlider of document.querySelectorAll(".clients__items")) {
+  //   if (mobileSlider) {
+  //     ;(function () {
+  //       "use strict"
+
+  //       const breakpoint = window.matchMedia("(min-width:768px)")
+  //       let slider
+
+  //       const enableSwiper = function () {
+  //         slider =
+  //       }
+
+  //       const breakpointChecker = function () {
+  //         if (breakpoint.matches === true) {
+  //           if (slider !== undefined) slider.destroy(true, true)
+
+  //           return
+  //         } else if (breakpoint.matches === false) {
+  //           return enableSwiper()
+  //         }
+  //       }
+
+  //       breakpoint.addListener(breakpointChecker)
+  //       breakpointChecker()
+  //     })()
+  //   }
+  // }
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {

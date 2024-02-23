@@ -1,10 +1,9 @@
 //====================================================================================================
 
 .hero {
-  background-color: #0d0d0d;
-  border-radius: toRem(10);
   position: relative;
   overflow: hidden;
+  background: linear-gradient(184deg, #363636 0%, #2f2f2f 100%);
 
   @include adaptiveValue("margin-bottom", 50, 30);
 
@@ -78,7 +77,8 @@
     @media (min-width: $mobile) {
       position: absolute;
       top: 0;
-      right: toRem(-65);
+      // right: toRem(-65);
+      right: 0;
       height: 100%;
       z-index: 1;
       width: 100%;
@@ -426,9 +426,9 @@
 //========================================================================================================================================================
 
 .submit {
-  @include adaptiveValue("padding-top", 75, 30);
-  @include adaptiveValue("padding-bottom", 75, 30);
   &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
   }
 
   &__body {
@@ -460,6 +460,8 @@
       background: url("@img/circle-decor-green.png") top right / cover no-repeat;
       z-index: 1;
 
+      border-radius: 10px 0 0 10px;
+
       @media (max-width: $tablet) {
         opacity: 0.5;
       }
@@ -483,6 +485,7 @@
       @media (max-width: $mobile) {
         width: 35%;
       }
+      border-radius: 0 10px 0 0;
     }
   }
 

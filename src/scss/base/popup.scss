@@ -51,9 +51,9 @@ body::after {
   transform: scale(0);
   transition: transform 0.3s ease 0s;
   background-color: #0e1e24;
-  padding: 20px;
+
   width: 100%;
-  max-width: toRem(600);
+  max-width: toRem(1200);
   border-radius: 10px;
   .lock & {
     visibility: visible;
@@ -63,62 +63,74 @@ body::after {
 //========================================================================================================================================================
 
 .popup {
+  &_thank {
+    .popup__content {
+      max-width: toRem(600);
+      padding: 20px;
+      @include adaptiveValue("min-height", 460, 350);
+      background-color: #0e1e24;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+
+      position: relative;
+
+      &::before,
+      &::after {
+        pointer-events: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 90%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("@img/circle-decor-green.png") top right / cover no-repeat;
+        z-index: 1;
+        opacity: 0.8;
+        @media (max-width: $tablet) {
+          opacity: 0.5;
+        }
+        @media (max-width: $mobile) {
+          width: 80%;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 35%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: url("@img/decor-green.png") top right / contain no-repeat;
+        z-index: 1;
+
+        @media (max-width: $tablet) {
+          opacity: 0.5;
+        }
+        @media (max-width: $mobile) {
+          width: 35%;
+        }
+      }
+    }
+  }
+
   &__wrapper {
   }
 
   &__content {
-    @include adaptiveValue("min-height", 460, 350);
-    background-color: #0e1e24;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-
-    position: relative;
-
-    &::before,
-    &::after {
-      pointer-events: none;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 90%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: url("@img/circle-decor-green.png") top right / cover no-repeat;
-      z-index: 1;
-      opacity: 0.8;
-      @media (max-width: $tablet) {
-        opacity: 0.5;
-      }
-      @media (max-width: $mobile) {
-        width: 80%;
-      }
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      width: 35%;
-      height: 100%;
-      top: 0;
-      right: 0;
-      background: url("@img/decor-green.png") top right / contain no-repeat;
-      z-index: 1;
-
-      @media (max-width: $tablet) {
-        opacity: 0.5;
-      }
-      @media (max-width: $mobile) {
-        width: 35%;
-      }
-    }
   }
 
   &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
   }
 
   &__title {
@@ -126,5 +138,10 @@ body::after {
   }
 
   &__text {
+  }
+
+  &__submit {
+    width: 100%;
+    height: 100%;
   }
 }
