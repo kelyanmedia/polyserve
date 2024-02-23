@@ -7,6 +7,10 @@
 
   @include adaptiveValue("margin-bottom", 50, 30);
 
+  @media (max-width: $mobile) {
+    margin-top: toRem(15);
+  }
+
   @media (max-width: $tablet) and (min-width: $mobile) {
     &::before {
       content: "";
